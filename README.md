@@ -27,7 +27,7 @@ INSTALLATION
 
 	npm install libxsltjs
 
-And then from the module's directory:
+IF you cloned it from Github then you need to go to the module's directory and run this:
 
 	node-gyp configure build
 
