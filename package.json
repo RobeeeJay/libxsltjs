@@ -1,0 +1,32 @@
+{
+  "name": "libxsltjs",
+  "version": "0.1.0",
+  "author": {
+    "name": "Robee Shepherd",
+    "email": "robee_github@robeesworld.com"
+  },
+  "description": "libxslt bindings for node.js",
+  "contributors": [
+    {
+      "name": "Robee Shepherd",
+      "email": "robee_github@robeesworld.com"
+    }
+  ],
+  "main": "./build/Release/nodexsltjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RobeeeJay/libxsltjs.git"
+  },
+  "dependencies": {
+  },
+  "keywords": [
+    "xslt",
+    "libxslt",
+    "node.js",
+    "v8"
+  ],
+  "license": "GPL",
+  "engine": {
+    "node": ">=0.10"
+  }
+}

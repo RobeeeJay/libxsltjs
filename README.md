@@ -1,4 +1,26 @@
 libxsltjs
 =========
 
-libxslt bindings for v8 javascript engine 
+libxslt bindings for node.js
+
+
+
+Credits
+=========
+
+Based heavily on the work of Brian Suh and his node_xslt module.
+https://github.com/bahblah/node_xslt
+
+
+
+IMPORTANT
+=========
+
+This is very much a WIP, I'm just trying to get compatibility with the parts of node-xslt I was using to work, before I worry about anything else.
+
+Use at your own risk!!!
+
+
+
+
+Robee
