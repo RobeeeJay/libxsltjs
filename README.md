@@ -22,5 +22,16 @@ Use at your own risk!!!
 
 
 
+INSTALLATION
+=========
 
-Robee
+	npm install libxsltjs
+
+And then from the module's directory:
+
+	node-gyp configure build
+
+
+Include it in your node project with:
+
+	var xslt = require("libxsltjs");
