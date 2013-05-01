@@ -29,6 +29,16 @@ void WeakCallbackXslTemplate(Persistent<Value> value, void *data)
 	value.Dispose();
 	value.Clear();
 }
+
+void WeakCallbackString(Persistent<Value> value, void *data)
+{
+	HandleScope scope;
+	
+	xmlFree(data);
+	
+	value.Dispose();
+	value.Clear();
+}
   
 Handle<Value> ReadXmlString(const Arguments &args)
 {
@@ -163,15 +173,15 @@ Handle<Value> Transform(const Arguments &args)
 		}
 		param->WriteAscii(params[i]);
 	}
-
+	
 	// Apply the style sheet to the document
         xmlDocPtr result = xsltApplyStylesheet(stylesheet, document, (const char **)params);
-
+        
         // Free the params memory
         for (unsigned int i = 0; i < array->Length(); i++)
 		free(params[i]);
 	free(params);
-
+	
         if (!result)
         {
 		ThrowException(Exception::TypeError(String::New("Failed to apply stylesheet")));
@@ -186,14 +196,14 @@ Handle<Value> Transform(const Arguments &args)
 
         // Free the result memory
 	xmlFreeDoc(result);
-
+	
         if (!doc_ptr)
-        {
-        	// Free the document memory since we aren't returning anything now
-        	free(doc_ptr);
         	return String::Empty();
-        }
-	return scope.Close(String::New((const char *)doc_ptr, doc_len));
+        
+        Persistent<String> docTransformed = Persistent<String>::New(String::New((const char *)doc_ptr, doc_len));
+	docTransformed.MakeWeak((void *)doc_ptr, WeakCallbackString);
+        
+	return scope.Close(docTransformed);
 }
 
 void Initialize(Handle<Object> exports)
