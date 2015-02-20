@@ -9,7 +9,7 @@ Credits
 =========
 
 Based heavily on the work of Brian Suh and his node_xslt module.
-https://github.com/bahblah/node_xslt
+https://github.com/bsuh/node_xslt
 
 
 
